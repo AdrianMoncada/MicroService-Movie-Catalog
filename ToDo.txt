@@ -1,0 +1,23 @@
+1. Config (Done)
+
+	1.1 Create ConfigServer project "config-server" ✅
+	1.2 Create config-data folder inside repo ✅
+	1.3 Put anotations on project (@EnableConfigServer) ✅
+	1.5 Create application.yml inside "config-server" ✅
+
+2. Eureka
+	2.1 Create EurekaServer project "eureka-server" ✅
+	2.2 Put anotations on project (@EnableEurekaServer) ✅
+	2.3 Create bootstrap.yml inside "eureka-server" ✅
+	2.4 Create config for "eureka-server" inside config-data ✅
+
+3. API Gateway
+	3.1 Create ApiGateway project "ms-gateway" ✅
+	3.2 Create bootstrap.yml inside "ms-gateway" ✅
+	3.3 Create config for "ms-gateway" inside config-data ✅
+	3.4 Configure routes in config ✅
+
+4. MS-movies MS-catalog
+	4.1 Add or uncomment dependencies in both microservices ✅
+	4.2 Delete config file. Get info from github repository ✅
+	4.3 Create bootstrap.yml inside both microservices ✅
