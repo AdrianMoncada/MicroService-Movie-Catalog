@@ -9,21 +9,18 @@ spring:
   zipkin:
     baseUrl: http://localhost:9411/
   application:
-    name: api-movie
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/spotify-dev-mysql
-    username: usr-spotify-mysql
-    password: pwd-spotify-mysql
-  jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
-
-
+    name: api-series
+  data:
+    mongodb:
+      username: usrseriemongo
+      password: pwdseriemongo
+      database: seriesdevmongo
+      port: 27017
+      host: localhost
+    
 eureka:
   client:
     registerWithEureka: true
-    fetchRegistry: false
+    fetchRegistry: true
     serviceURL:
       defaultZone: http://localhost:8761/eureka
