@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  mongocontenedorseries:
+    image: mongo
+    container_name: mongocontenedorseries
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: 'seriesdevmongo'
+      MONGO_INITDB_ROOT_USERNAME: 'usrseriemongo'
+      MONGO_INITDB_ROOT_PASSWORD: 'pwdseriemongo'
+    ports:
+      - 27011:27017
+    expose:
+      - 27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
