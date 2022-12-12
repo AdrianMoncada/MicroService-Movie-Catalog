@@ -15,9 +15,11 @@ public class RabbitMQConfig {
 
     public static final String EXCHANGE_NAME = "apiExchange";
 
-    public static final String TOPIC_NEW_MOVIE = "com.dh.movie.newMovie";
+    public static final String TOPIC_NEW_MOVIE = "com.dh.newMovie";
+    /*public static final String TOPIC_NEW_MOVIE = "com.dh.movie.newMovie";*/
 
-    public static final String TOPIC_NEW_SERIE = "com.example.apiserie.newSerie";
+    public static final String TOPIC_NEW_SERIE = "com.dh.newSerie";
+    /*public static final String TOPIC_NEW_SERIE = "com.example.apiserie.newSerie";*/
 
     public static final String QUEUE_NEW_MOVIE = "newMovieQueue";
 

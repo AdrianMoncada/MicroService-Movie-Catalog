@@ -25,23 +25,27 @@ public class SerieService {
         newSerieEventProducer.execute(serie);
     }
 
-    public List<Serie> getAll() {
+    public List<Serie> findByGenre(String genre) {
+        return serieRepositoryMongo.findByGenre(genre);
+    }
+
+    /*public List<Serie> getAll() {
         return serieRepositoryMongo.findAll();
-    }
+    }*/
 
-    public Serie getById(Long id) {
+    /*public Serie getById(Long id) {
         return serieRepositoryMongo.findById(id).orElse(null);
-    }
+    }*/
 
-    public void deleteById(Long id) {
+    /*public void deleteById(Long id) {
         serieRepositoryMongo.deleteById(id);
-    }
+    }*/
 
-    public void update(Serie serie) {
+    /*public void update(Serie serie) {
         if (serieRepositoryMongo.existsById(serie.getId())) {
             serieRepositoryMongo.save(serie);
         }
-    }
+    }*/
 
     /*public void addSeason(Long idSerie, Long idSeason) throws Exception {
         var serie = serieRepository.findById(idSerie);

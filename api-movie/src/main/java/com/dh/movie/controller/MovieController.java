@@ -26,12 +26,12 @@ public class MovieController {
         return ResponseEntity.ok(movie.getId());
     }
 
-    @PutMapping
+    /*@PutMapping
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity update(@RequestBody Movie movie) {
         movieService.update(movie);
         return ResponseEntity.ok().build();
-    }
+    }*/
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
@@ -39,23 +39,23 @@ public class MovieController {
         return ResponseEntity.ok(movieService.getAll());
     }
 
-    @GetMapping("/{id}")
+   /* @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity<Movie> getById(@PathVariable Long id) {
         return ResponseEntity.ok(movieService.getById(id));
-    }
+    }*/
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity delete(@PathVariable Long id) {
         movieService.deleteById(id);
         return ResponseEntity.ok().build();
-    }
+    }*/
 
-    /*@GetMapping("/{genre}")
+    @GetMapping("/{genre}")
     ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
         return ResponseEntity.ok().body(movieService.findByGenre(genre));
-    }*/
+    }
 
 
 }

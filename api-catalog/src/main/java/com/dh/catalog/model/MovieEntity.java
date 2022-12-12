@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "Music")
+@Document(collection = "Movies")
 public class MovieEntity implements Serializable {
 
     /*@Serial

@@ -31,12 +31,17 @@ public class SerieController {
         return ResponseEntity.ok(serie.getId());
     }
 
-    @PutMapping
+    @GetMapping("/{genre}")
+    private ResponseEntity<List<Serie>> findByGenre(@PathVariable String genre){
+        return ResponseEntity.ok(serieService.findByGenre(genre));
+    }
+
+    /*@PutMapping
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity update(@RequestBody Serie serie) {
         serieService.update(serie);
         return ResponseEntity.ok().build();
-    }
+    }*/
 
     /*@PatchMapping("/addSeason")
     @ResponseStatus(code = HttpStatus.OK)

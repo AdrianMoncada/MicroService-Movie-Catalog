@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "Serie")
+@Document(collection = "Series")
 public class SerieEntity implements Serializable {
 
      /*@Serial
