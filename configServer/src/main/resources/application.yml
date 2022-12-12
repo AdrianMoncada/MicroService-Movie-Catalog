@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Beatu0429/esp-back-i-parcial-BN
-          default-label: develop
+          uri: https://github.com/AdrianMoncada/MicroService-Movie-Catalog
+          default-label: main
           force-pull: true
           search-paths: configData
