@@ -3,6 +3,7 @@ package com.dh.catalog.event;
 
 import com.dh.catalog.config.RabbitMQConfig;
 import com.dh.catalog.model.SerieEntity;
+import com.dh.catalog.model.dto.SerieDTO;
 import com.dh.catalog.repository.SerieRepositoryMongo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,11 +28,11 @@ public class NewSerieEventConsumer {
     }
 
     @RabbitListener(queues = RabbitMQConfig.QUEUE_NEW_SERIES)
-    public void execute(SerieEntity series) {
-        series.setSerieId(12L);
+    public void execute(SerieDTO series) {
+        /*series.setSerieId(12L);*/
         System.out.print("Se ejecutó el metodo Execute en Catalog");
         System.out.print(series.getName());
-        serieRepositoryMongo.deleteById(series.getSerieId());
+        /*serieRepositoryMongo.deleteById(series.getSerieId());*/
         serieRepositoryMongo.save(series);
     }
 

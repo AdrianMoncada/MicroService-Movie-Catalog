@@ -2,6 +2,7 @@ package com.dh.series.controller;
 
 import com.dh.series.model.Serie;
 import com.dh.series.service.SeasonServiceImpl;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -26,9 +27,16 @@ public class SerieController {
         return ResponseEntity.ok(service.findByGenre(genre));
     }
 
-    @PostMapping()
+    /*@PostMapping()
     private Serie postSeries(@RequestBody Serie serie){
         return service.save(serie);
+    }*/
+
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    ResponseEntity<Long> create(@RequestBody Serie serie) {
+        service.save(serie);
+        return ResponseEntity.ok(serie.getSerieId());
     }
 
 }
