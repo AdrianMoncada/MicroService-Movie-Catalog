@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.ArrayList;
 import java.util.List;
 
-@FeignClient(name="api-serie")
+@FeignClient(name="api-series")
 public interface SerieServiceClient {
 
     @GetMapping("/api/v1/series/{genre}")

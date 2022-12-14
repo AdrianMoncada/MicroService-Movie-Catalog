@@ -18,7 +18,7 @@ public class SerieEntity implements Serializable {
     private static final long serialVersionUID = 1L;*/
 
     @Id
-    private Long id;
+    private Long serieId;
     private String name;
     private String genre;
     private List<Season> seasons = new ArrayList<>();

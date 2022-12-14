@@ -26,7 +26,16 @@ public class NewSerieEventConsumer {
         this.serieRepositoryMongo = serieRepositoryMongo;
     }
 
-    @RabbitListener(queues = RabbitMQConfig.QUEUE_NEW_SERIE)
+    @RabbitListener(queues = RabbitMQConfig.QUEUE_NEW_SERIES)
+    public void execute(SerieEntity series) {
+        series.setSerieId(12L);
+        System.out.print("Se ejecutó el metodo Execute en Catalog");
+        System.out.print(series.getName());
+        serieRepositoryMongo.deleteById(series.getSerieId());
+        serieRepositoryMongo.save(series);
+    }
+
+    /*@RabbitListener(queues = RabbitMQConfig.QUEUE_NEW_SERIES)
     public void execute(NewSerieEventConsumer.Data data) {
         SerieEntity serieNew= new SerieEntity();
         BeanUtils.copyProperties(data.getSerie(),serieNew);
@@ -43,8 +52,8 @@ public class NewSerieEventConsumer {
     @AllArgsConstructor
     public static class Data implements Serializable {
 
-        /*@Serial
-        private static final long serialVersionUID = 1L;*/
+        *//*@Serial
+        private static final long serialVersionUID = 1L;*//*
         private SerieDto serie = new SerieDto();
 
         @Getter
@@ -53,8 +62,8 @@ public class NewSerieEventConsumer {
         @AllArgsConstructor
         public static class SerieDto implements Serializable {
 
-            /*@Serial
-            private static final long serialVersionUID = 1L;*/
+            *//*@Serial
+            private static final long serialVersionUID = 1L;*//*
             private Long id;
             private String name;
             private String genre;
@@ -66,8 +75,8 @@ public class NewSerieEventConsumer {
             @AllArgsConstructor
             public static class SeasonDto implements Serializable {
 
-                /*@Serial
-                private static final long serialVersionUID = 1L;*/
+                *//*@Serial
+                private static final long serialVersionUID = 1L;*//*
                 private Long id;
                 private Integer seasonNumber;
 
@@ -90,5 +99,5 @@ public class NewSerieEventConsumer {
             }
         }
 
-    }
+    }*/
 }
