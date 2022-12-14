@@ -34,7 +34,7 @@ public class SerieController {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    ResponseEntity<Long> create(@RequestBody Serie serie) {
+    ResponseEntity<String> create(@RequestBody Serie serie) {
         service.save(serie);
         return ResponseEntity.ok(serie.getSerieId());
     }

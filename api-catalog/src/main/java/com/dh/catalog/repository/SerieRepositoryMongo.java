@@ -9,5 +9,5 @@ import java.util.List;
 public interface SerieRepositoryMongo extends MongoRepository<SerieDTO, Long> {
 
     /*USE AT OFFLINE METHOD*/
-    List<SerieEntity> findByGenre(String genre);
+    List<SerieDTO> findByGenre(String genre);
 }
