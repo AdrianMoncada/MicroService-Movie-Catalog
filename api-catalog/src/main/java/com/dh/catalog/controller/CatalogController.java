@@ -40,8 +40,17 @@ public class CatalogController {
 		this.serieRepositoryMongo = serieRepositoryMongo;
 	}
 
+	/*Resilencia: Agregué al método "getAllByGenre" un circuit breaker que le permite, en caso
+	de que el mismo no esté funcionando, invocar otro, en este caso "getAllByGenreFallBack".
+	Que permite, en caso de que el método no pueda devolver información haciendo uso del
+	microservicio de Movies y/o Series; utilice su propia base de datos Mongo, que fué completándose
+	a medidas que los microservicios de Movies y/o Series guardaban registros en sus propias bases de datos.
+	Además, cuenta con la capacidad de utilizar Retries en caso de que no funcione. Con un número máximo de
+	intentos de 3, con un tiempo de espera entre reintentos de 10 segundos.
+	Se utilizó la misma lógica de resilencia para el método "getAllByGenreOffline" a diferencia del anterior,
+	este al no funcionar, devuelve un string con el mensaje "Service unavailable..."*/
 
-	/*@Retry(name = "retryCatalog")*/
+	@Retry(name = "retryCatalog")
 	@CircuitBreaker(name = "clientCatalog", fallbackMethod = "getAllByGenreFallBack")
 	@GetMapping("/online/{genre}")
 	@ResponseStatus(code = HttpStatus.OK)
@@ -69,8 +78,8 @@ public class CatalogController {
 
 
 	/*TO DO*/
-	/*@Retry(name = "retryCatalog")*/
-	/*@CircuitBreaker(name = "clientCatalog", fallbackMethod = "getAllByGenreOfflineFallBack")*/
+	@Retry(name = "retryCatalog")
+	@CircuitBreaker(name = "clientCatalog", fallbackMethod = "getAllByGenreOfflineFallBack")
 	@GetMapping("/offline/{genre}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public ResponseEntity<Genre> getAllByGenreOffline(@PathVariable String genre) {
@@ -83,9 +92,9 @@ public class CatalogController {
 		return ResponseEntity.ok().body(response);
 	}
 
-	/*public ResponseEntity<Genre> getAllByGenreOfflineFallBack(@PathVariable String genre, Throwable t) {
-		PASTE OFFLINE METHOD (BD)
-	}*/
+	public String getAllByGenreOfflineFallBack(@PathVariable String genre, Throwable t) {
+		return "Service unavailable...";
+	}
 
 
 
